@@ -8,37 +8,60 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CipherTest {
     Cipher newCipher;
+
     @BeforeEach
-    public void setup(){
+    public void setup() {
         newCipher = new Cipher();
     }
+
     @Test
     @DisplayName("Return Integer for shift value")
-    public void encrypt_returnsIntegerForShiftValue_Integer(){
+    public void encrypt_returnsIntegerForShiftValue_Integer() {
         int shift = 7;
         assertEquals(shift, newCipher.shift);
     }
 
     @Test
     @DisplayName("Return empty string")
-    public void encrypt_returnEmptyCipherString_String(){
+    public void encrypt_returnsEmptyCipherString_String() {
 
         int shift = 7;
         String cipherText = "";
-        assertEquals(cipherText, newCipher.encrypt());
+        assertEquals(cipherText, newCipher.encrypt(""));
     }
 
     @Test
     @DisplayName("For loop returns characters from User's input")
-    public void encrypt_forLoopReturnsCharactersFromUserInput_Char(){
+    public void encrypt_forLoopReturnsCharactersFromUserInput_Char() {
 
         int shift = 7;
         String cipherText = "";
         String userInput = "I love playing video games!";
         int length = userInput.length();
-        for (int i = 0; i < length; i++){
-            char ch = userInput.charAt(i);
+        for (int i = 0; i < length; i++) {
+            char ch = userInput.charAt(i); //Confirm that ch iterates through the characters in userInput string
             assertEquals(ch, ch);
+        }
+    }
+
+    @Test
+    public void encrypt_checkCharacterInStringIsLetter_boolean() {
+        int shift = 7;
+        String cipherText = "";
+        String userInput = "I love playing video games!";
+        int length = userInput.length();
+        for (int i = 0; i < length; i++) {
+            char ch = userInput.charAt(i); //Confirm that ch iterates through the characters in userInput string
+            if (Character.isLetter(ch)) {
+                if (Character.isLowerCase(ch)) {
+
+                } else if (Character.isUpperCase(ch)) {
+
+                }
+            } else {
+                cipherText += ch;
+            }
+            assertEquals(Character.isLetter(ch), Character.isLetter(ch));
         }
     }
 
