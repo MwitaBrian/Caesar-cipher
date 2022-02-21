@@ -19,4 +19,12 @@ class CipherTest {
         assertEquals(shift, newCipher.shift);
     }
 
+    @Test
+    public void encrypt_returnEmptyCipherString_String(){
+        Cipher newCipher = new Cipher();
+        int shift = 7;
+        String cipherText = "";
+        assertEquals(cipherText, newCipher.encrypt());
+    }
+
 }
