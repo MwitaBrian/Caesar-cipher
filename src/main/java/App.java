@@ -13,10 +13,18 @@ public class App {
 
         String cipheredText = newCipher.encrypt(userInput);
         System.out.println("Your encrypted text: " + cipheredText);
-        System.out.println(cipheredText);
 
-        String decipheredText = newCipher.decrypt(cipheredText);
-        System.out.println("Your deciphered text: " + decipheredText);
-        System.out.println(decipheredText);
+        System.out.println("Type 'decipher' in order to revert your text back to original...");
+        String decipher = input.nextLine();
+
+        if (decipher.equals("decipher")){
+            String decipheredText = newCipher.decrypt(cipheredText);
+            System.out.println("Your deciphered text: " + decipheredText);
+        }
+        else {
+            System.out.println("Wrong Input! Try again!");
+        }
+
+
     }
 }
