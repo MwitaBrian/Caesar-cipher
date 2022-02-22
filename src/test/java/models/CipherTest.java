@@ -119,6 +119,7 @@ class CipherTest {
                 newUserText += ch;
             }
         }
+        assertEquals(true, newCipher.decrypt().equals(userText));
     }
 
 }
