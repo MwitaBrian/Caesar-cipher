@@ -99,12 +99,12 @@ class CipherTest {
     @Test
     public void decrypt_returnsSameUserText_String(){
         int shift = 7;
-        String userText = "I love playing video games!";
+        String userInput = "I love playing video games!";
         String newUserText = "";
-        String cipherText = newCipher.encrypt(userText);
-        int length = cipherText.length();
+        String cipheredText = newCipher.encrypt(userInput);
+        int length = cipheredText.length();
         for (int i = 0; i < length; i++){
-            char ch = cipherText.charAt(i);
+            char ch = cipheredText.charAt(i);
             if (Character.isLetter(ch)){
                 if (Character.isLowerCase(ch)){
                     char newCh = (char) ('a' - (ch + 'a' - shift) % 26);
@@ -119,7 +119,7 @@ class CipherTest {
                 newUserText += ch;
             }
         }
-        assertEquals(true, newCipher.decrypt().equals(userText));
+        assertEquals(true, newCipher.decrypt().equals(userInput));
     }
 
 }
