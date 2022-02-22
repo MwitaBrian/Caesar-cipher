@@ -2,7 +2,6 @@ package models;
 
 public class Cipher {
     int shift = 7;
-    String userInput = "I love playing video games!";
 
     public String encrypt(String userInput){
         String cipherText = "";
@@ -36,9 +35,8 @@ public class Cipher {
         return cipherText;
     }
 
-    public String decrypt() {
-        String newUsertext = "";
-        String cipheredText = encrypt(userInput);
+    public String decrypt(String cipheredText) {
+        String newUserText = "";
         int length = cipheredText.length();
         for (int i = 0; i < length; i++){
             char ch = cipheredText.charAt(i);
@@ -46,26 +44,26 @@ public class Cipher {
                 if (Character.isLowerCase(ch)){
                     char newCh = (char) (ch - shift);
                     if (newCh < 'a'){
-                        newUsertext += (char)(ch + (26 - shift));
+                        newUserText += (char)(ch + (26 - shift));
                     }
                     else {
-                        newUsertext += newCh;
+                        newUserText += newCh;
                     }
                 }
                 else if (Character.isUpperCase(ch)){
                     char newCh = (char) (ch - shift);
                     if (newCh < 'A'){
-                        newUsertext += (char)(ch + (26 - shift));
+                        newUserText += (char)(ch + (26 - shift));
                     }
                     else {
-                        newUsertext += newCh;
+                        newUserText += newCh;
                     }
                 }
             }
             else {
-                newUsertext += ch;
+                newUserText += ch;
             }
         }
-        return newUsertext;
+        return newUserText;
     }
 }

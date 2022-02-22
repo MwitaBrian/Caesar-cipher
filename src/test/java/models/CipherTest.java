@@ -93,7 +93,7 @@ class CipherTest {
 
     @Test
     public void decrypt_checkThatDecryptMethodReturnsString_String(){
-        assertEquals(true,newCipher.decrypt()instanceof String);
+        assertEquals(true,newCipher.decrypt("")instanceof String);
     }
 
     @Test
@@ -119,7 +119,7 @@ class CipherTest {
                 newUserText += ch;
             }
         }
-        assertEquals(true, newCipher.decrypt().equals(userInput));
+        assertEquals(true, newCipher.decrypt("X adkt vdxcv iwt!").equals(userInput));
     }
 
 }
