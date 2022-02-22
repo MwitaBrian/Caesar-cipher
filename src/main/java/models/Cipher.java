@@ -39,6 +39,7 @@ public class Cipher {
     }
 
     public String decrypt() {
-        return cipherText;
+        String newUsertext = "";
+        return newUsertext;
     }
 }
