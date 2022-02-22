@@ -65,4 +65,25 @@ class CipherTest {
         }
     }
 
+    @Test
+    public void encrypt_cipherTextReturnedIsNotEmptyString_boolean(){
+        int shift = 7;
+        String cipherText = "";
+        String userInput = "I love playing video games!";
+        int length = userInput.length();
+        for (int i = 0; i < length; i++){
+            char ch = userInput.charAt(i);
+            if (Character.isLetter(ch)){
+                if (Character.isLowerCase(ch)){
+                    char newCh = (char) ('a' + (ch - 'a' + shift) % 26);
+                    cipherText += newCh;
+                }
+            }
+            else {
+                cipherText += ch;
+            }
+            assertEquals(false, newCipher.encrypt(userInput).equals(""));
+        }
+    }
+
 }
