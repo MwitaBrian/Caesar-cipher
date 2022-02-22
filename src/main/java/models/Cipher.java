@@ -27,4 +27,8 @@ public class Cipher {
         }
         return cipherText;
     }
+
+    public String decrypt() {
+        return null;
+    }
 }

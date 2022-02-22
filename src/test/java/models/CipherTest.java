@@ -86,4 +86,9 @@ class CipherTest {
         }
     }
 
+    @Test
+    public void decrypt_checkThatDecryptMethodReturnsString_String(){
+        assertEquals(true,newCipher.decrypt()instanceof String);
+    }
+
 }
