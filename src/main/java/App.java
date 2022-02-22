@@ -13,5 +13,8 @@ public class App {
 
         String cipheredText = newCipher.encrypt(userInput);
         System.out.println(cipheredText);
+
+        String decipheredText = newCipher.decrypt(cipheredText);
+        System.out.println(decipheredText);
     }
 }
