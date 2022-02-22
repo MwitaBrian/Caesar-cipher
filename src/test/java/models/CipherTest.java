@@ -18,7 +18,7 @@ class CipherTest {
     @DisplayName("Return Integer for shift value")
     public void encrypt_returnsIntegerForShiftValue_Integer() {
         int shift = 7;
-        assertEquals(shift, newCipher.shift);
+        assertEquals(shift, newCipher.getShift());
     }
 
     @Test
@@ -98,6 +98,7 @@ class CipherTest {
 
     @Test
     public void decrypt_returnsSameUserText_String(){
+        Cipher newCipher = new Cipher();
         int shift = 7;
         String userInput = "I love playing video games!";
         String newUserText = "";
@@ -107,19 +108,29 @@ class CipherTest {
             char ch = cipheredText.charAt(i);
             if (Character.isLetter(ch)){
                 if (Character.isLowerCase(ch)){
-                    char newCh = (char) ('a' - (ch + 'a' - shift) % 26);
-                    newUserText += newCh;
+                    char newCh = (char) (ch - shift);
+                    if (newCh < 'a'){
+                        newUserText += (char)(ch + (26 - shift));
+                    }
+                    else {
+                        newUserText += newCh;
+                    }
                 }
                 else if (Character.isUpperCase(ch)){
-                    char newCh = (char) ('A' - (ch + 'A' - shift) % 26);
-                    newUserText += newCh;
+                    char newCh = (char) (ch - shift);
+                    if (newCh < 'A'){
+                        newUserText += (char)(ch + (26 - shift));
+                    }
+                    else {
+                        newUserText += newCh;
+                    }
                 }
             }
             else {
                 newUserText += ch;
             }
         }
-        assertEquals(true, newCipher.decrypt("X adkt vdxcv iwt!").equals(userInput));
+        assertEquals(true, newCipher.decrypt("P svcl wshfpun cpklv nhtlz!").equals(userInput));
     }
 
 }
