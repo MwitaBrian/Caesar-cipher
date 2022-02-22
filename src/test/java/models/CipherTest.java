@@ -75,8 +75,13 @@ class CipherTest {
             char ch = userInput.charAt(i);
             if (Character.isLetter(ch)){
                 if (Character.isLowerCase(ch)){
-                    char newCh = (char) ('a' + (ch - 'a' + shift) % 26);
-                    cipherText += newCh;
+                    char newCh = (char) (ch + shift);
+                    if (newCh > 'z'){
+                        cipherText += (char)(ch - (26 - shift));
+                    }
+                    else {
+                        cipherText += newCh;
+                    }
                 }
             }
             else {
